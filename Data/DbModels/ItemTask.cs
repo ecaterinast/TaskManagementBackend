@@ -1,12 +1,8 @@
-﻿namespace TaskManagement.Data.DbModels
+﻿
+namespace TaskManagement.Data.DbModels
 {
-    public class ItemTask
-    { 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public DateTime TaskCreated { get; set; }
-        public string Status { get; set; }
-        public string Priority { get; set; }
+    public class ItemTask : BaseTask
+    {
+        bool isPrivate {  get; set; }
     }
 }

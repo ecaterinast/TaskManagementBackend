@@ -2,39 +2,40 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskManagement.Data;
 using TaskManagement.Data.DbModels;
+using TaskManagement.Interfaces;
 using TaskManagement.Models;
+using TaskManagement.Service;
 
 namespace TaskManagement.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TaskController : ControllerBase
+    public class TaskController : ControllerBase, ITaskController
     {
-        private DataContext _dataContext;
-        public TaskController(DataContext dbContext)
+        private ITaskService _service;
+
+        //Dependency Inversion Principle
+        public TaskController(DataContext dataContext)
         {
-            _dataContext = dbContext;
+            _service = new TaskService(dataContext);
         }
         [HttpGet]
-        public ItemTask GetTask()
+        public List<ItemTask> GetAllTasks()
         {
-            return new ItemTask()
-            {
-                Name = "task 1"
-            };
+            return _service.GetAllTasks();
         }
 
         [HttpPost]
-        public void Add(TaskModel task)
+        public void AddTask([FromBody] ItemTask task)
         {
-            _dataContext.Add(task);
-            // functional add a task
+            _service.AddTask(task);
         }
 
-        [HttpDelete]
-        public void Delete(TaskModel task)
+        [HttpPost]
+        [Route("delete")]
+        public void RemoveTask(string name)
         {
-            // functional delete a task
+            _service.RemoveTask(name);
         }
     }
 }

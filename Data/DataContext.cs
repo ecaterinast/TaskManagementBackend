@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Data.DbModels;
+using TaskManagement.Interfaces;
 
 namespace TaskManagement.Data
 {
