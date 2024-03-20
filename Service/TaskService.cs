@@ -7,10 +7,21 @@ namespace TaskManagement.Service
 {
     public class TaskService : ITaskService
     {
-        DataContext _dataContext;
-        public TaskService(DataContext dataContext)
+        private static TaskService _instance;
+
+        private DataContext _dataContext;
+        private TaskService(DataContext dataContext)
         {
             _dataContext = dataContext;
+        }
+
+        public static TaskService GetInstance(DataContext dataContext)
+        {
+            if (_instance == null)
+            {
+                _instance = new TaskService(dataContext);
+            }
+            return _instance;
         }
         public void AddTask(ItemTask task)
         {
