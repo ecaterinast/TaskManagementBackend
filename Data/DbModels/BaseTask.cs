@@ -11,5 +11,10 @@
         public string Status { get; set; }
         public abstract void CreateTask(); // implementation of Factory Method
         public abstract BaseTask Clone(); // implementation of Prototype
+
+        // Implementation of Builder
+        public abstract void AddDescription();
+        public abstract void AddLink();
+        public abstract void AddAssignee();
     }
 }

@@ -22,5 +22,20 @@ namespace TaskManagement.Data.DbModels
         {
             Console.WriteLine("A bug was created!");
         }
+
+        public override void AddAssignee()
+        {
+            Console.WriteLine("Assigned a person to a bug."); ;
+        }
+
+        public override void AddDescription()
+        {
+            Console.WriteLine("Add Description to a bug."); ;
+        }
+
+        public override void AddLink()
+        {
+            Console.WriteLine("Added a Link for a bug.");
+        }
     }
 }
