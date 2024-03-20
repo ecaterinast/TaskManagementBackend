@@ -33,5 +33,11 @@ namespace TaskManagement.Service
                 _dataContext.SaveChanges();
             }
         }
+
+        public void CloneTask (BaseTask task)
+        {
+            task.Clone();
+        }
+
     }
 }

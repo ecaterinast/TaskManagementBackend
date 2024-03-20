@@ -6,9 +6,7 @@ using TaskManagement.Interfaces;
 namespace TaskManagement.Data
 {
     public class DataContext : DbContext
-    {
-        //private readonly string _connectionString;
-        
+    {        
         public DataContext(DbContextOptions<DataContext> options) :
             base(options)
         {

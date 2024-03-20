@@ -8,5 +8,8 @@
         public DateTime TaskCreated { get; set; }
         public DateTime DueDate { get; set; }
         private bool IsCompleted { get; set; }
+        public string Status { get; set; }
+        public abstract void CreateTask(); // implementation of Factory Method
+        public abstract BaseTask Clone(); // implementation of Prototype
     }
 }

@@ -14,7 +14,6 @@ namespace TaskManagement.Controllers
     {
         private ITaskService _service;
 
-        //Dependency Inversion Principle
         public TaskController(DataContext dataContext)
         {
             _service = new TaskService(dataContext);
