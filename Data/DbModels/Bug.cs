@@ -12,13 +12,13 @@ namespace TaskManagement.Data.DbModels
         public bool isFixed {  get; set; }
         public string taskTitle { get; set; }
 
-        public override BaseTask Clone()
+        public override Bug Clone()
         {
             Console.WriteLine("A bug task was cloned!");
             return this.MemberwiseClone() as Bug;
         }
 
-        public override void CreateTask()
+        public override void Create()
         {
             Console.WriteLine("A bug was created!");
         }
@@ -36,6 +36,11 @@ namespace TaskManagement.Data.DbModels
         public override void AddLink()
         {
             Console.WriteLine("Added a Link for a bug.");
+        }
+
+        public override void AddHours()
+        {
+            Console.WriteLine("Added Hours for a bug.");
         }
     }
 }

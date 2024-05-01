@@ -7,5 +7,7 @@ namespace TaskManagement.Interfaces
         void AddTask(ItemTask task);
         void RemoveTask(string name);
         List<ItemTask> GetAllTasks();
+
+        int CalculateTotalHours(); // Composite
     }
 }

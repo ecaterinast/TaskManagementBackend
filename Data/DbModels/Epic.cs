@@ -2,18 +2,18 @@
 {
     public class Epic : BaseTask
     {
-        List <BaseTask> tasks { get; set; }
+        List <ItemTask> tasks { get; set; }
         public Epic()
         {
             
         }
 
-        public override void CreateTask()
+        public override void Create()
         {
             Console.WriteLine("An epic was created!");
         }
 
-        public override BaseTask Clone()
+        public override Epic Clone()
         {
             Console.WriteLine("A simple task was cloned!");
             return this.MemberwiseClone() as Epic;
@@ -32,6 +32,11 @@
         public override void AddLink()
         {
             Console.WriteLine("Added a Link to an epic.");
+        }
+
+        public override void AddHours()
+        {
+            Console.WriteLine("Added Hours to an epics.");
         }
     }
 }

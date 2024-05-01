@@ -5,12 +5,12 @@ namespace TaskManagement.Data.DbModels
     {
         public ItemTask() { }
 
-        public override void CreateTask()
+        public override void Create()
         {
             Console.WriteLine("A simple task was created!");
         }
 
-        public override BaseTask Clone()
+        public override ItemTask Clone()
         {
             Console.WriteLine("A simple task was cloned!");
             return this.MemberwiseClone() as ItemTask;
@@ -29,6 +29,11 @@ namespace TaskManagement.Data.DbModels
         public override void AddLink()
         {
             Console.WriteLine("Added a Link for a simple task.");
+        }
+
+        public override void AddHours()
+        {
+            Console.WriteLine("Added Hours for a task.");
         }
     }
 }

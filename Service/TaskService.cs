@@ -45,10 +45,35 @@ namespace TaskManagement.Service
             }
         }
 
-        public void CloneTask (BaseTask task)
+        public void CloneTask (ItemTask task)
         {
-            task.Clone();
+            //ItemTask clonedTask = task.Clone();
         }
 
+        public void ChooseTaskType(string type) 
+        {
+
+            if (type == "bug")
+            {
+            }
+            else if (type == "itemtask")
+            {
+
+            }
+            else if (type == "epic")
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("Present an existing type!");
+            }
+        }
+
+        public int CalculateTotalHours() // Composite
+        {
+            int hours = 0;
+            return hours;
+        }
     }
 }
