@@ -4,5 +4,6 @@
     {
         void AddDescription();
         public abstract void Create();
+        int CalculateTotalHours();
     }
 }

@@ -17,16 +17,21 @@ namespace TaskManagement.Data.DbModels
         public abstract BaseTask Clone(); // implementation of Prototype
 
         // Implementation of Builder
-        public abstract void AddDescription(); //virtual or abstract ???
-        public abstract void AddLink();
-        public abstract void AddAssignee();
-
-        public abstract void AddHours(); // Composite + builder
+        public virtual void AddDescription() { Console.WriteLine("Description added"); } 
+        public virtual void AddLink() { Console.WriteLine("Link added"); }
+        public virtual void AddAssignee() { Console.WriteLine("Assignee added"); }
+        public virtual void AddHours() { Console.WriteLine("Hours added"); } // Composite + builder
 
         // Implementation of Decorator
         public virtual string GetDescription()
         {
             return $"Title: {Name}\nDescription: {Description}\nDue Date: {DueDate}";
+        }
+        // Implementation of Coomposite
+        public virtual int CalculateTotalHours()
+        {
+            Console.WriteLine($"Hours = {Hours}");
+            return Hours;
         }
     }
 }

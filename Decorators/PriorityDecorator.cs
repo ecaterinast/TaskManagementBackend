@@ -14,7 +14,7 @@ namespace TaskManagement.Decorators
             return base.GetDescription() + $"\n(Priority: {Priority})";
         }
 
-        //virtual or abstract??
+        //virtual or abstract?? de adaugat
         public override void Create()
         {
             throw new NotImplementedException();
@@ -25,24 +25,5 @@ namespace TaskManagement.Decorators
             throw new NotImplementedException();
         }
 
-        public override void AddDescription()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void AddLink()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void AddAssignee()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void AddHours()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

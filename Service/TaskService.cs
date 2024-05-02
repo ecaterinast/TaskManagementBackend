@@ -10,7 +10,7 @@ namespace TaskManagement.Service
         private static TaskService _instance;
 
         private DataContext _dataContext;
-        private TaskService(DataContext dataContext)
+        public TaskService(DataContext dataContext)
         {
             _dataContext = dataContext;
         }
