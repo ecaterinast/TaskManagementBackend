@@ -5,10 +5,9 @@ namespace TaskManagement.Data.DbModels
 {
     public class Bug : BaseTask
     {
-        public Bug(string relatedTaskTitle)
-        {
-            relatedTaskTitle  = taskTitle;
-        }
+        public Bug()
+        { }
+             
         public bool isFixed {  get; set; }
         public string taskTitle { get; set; }
 
@@ -20,6 +19,7 @@ namespace TaskManagement.Data.DbModels
 
         public override void Create()
         {
+
             Console.WriteLine("A bug was created!");
         }
 

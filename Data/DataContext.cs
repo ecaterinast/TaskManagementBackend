@@ -13,6 +13,8 @@ namespace TaskManagement.Data
 
         }
         public virtual DbSet<ItemTask> Tasks { get; set; }
+        public virtual DbSet<Bug> Bugs { get; set; }
+        public virtual DbSet<Epic> Epics { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

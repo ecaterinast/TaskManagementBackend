@@ -12,7 +12,9 @@ namespace TaskManagement.Data.DbModels
         public DateTime DueDate { get; set; }
         private bool IsCompleted { get; set; }
         public string Status { get; set; }
+        public TaskType Type { get; set; }
         public int Hours { get; set; }
+        public TaskPriority Priority { get; set; } // implementation of CoR
         public abstract void Create(); // implementation of Factory Method
         public abstract BaseTask Clone(); // implementation of Prototype
 
@@ -27,7 +29,7 @@ namespace TaskManagement.Data.DbModels
         {
             return $"Title: {Name}\nDescription: {Description}\nDue Date: {DueDate}";
         }
-        // Implementation of Coomposite
+        // Implementation of Composite
         public virtual int CalculateTotalHours()
         {
             Console.WriteLine($"Hours = {Hours}");

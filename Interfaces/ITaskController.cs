@@ -4,7 +4,7 @@ namespace TaskManagement.Interfaces
 {
     public interface ITaskController
     {
-        void AddTask (ItemTask task);
+        void AddTask (BaseTask task, TaskType type);
         void RemoveTask(string name);
         List<ItemTask> GetAllTasks ();
     }

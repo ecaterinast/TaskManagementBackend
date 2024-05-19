@@ -23,10 +23,30 @@ namespace TaskManagement.Service
             }
             return _instance;
         }
-        public void AddTask(ItemTask task)
+        public void AddTask(BaseTask task, TaskType type)
         {
-            _dataContext.Add(task);
-            _dataContext.SaveChanges();
+            try
+            {
+                if (type == TaskType.ItemTask)
+                {
+                    _dataContext.Tasks.Add((ItemTask)task);
+                    _dataContext.SaveChanges();
+                }
+                if (type == TaskType.Bug)
+                {
+                    _dataContext.Bugs.Add((Bug)task);
+                    _dataContext.SaveChanges();
+                }
+                if (type == TaskType.Epic)
+                {
+                    _dataContext.Epics.Add((Epic)task);
+                    _dataContext.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         public List<ItemTask> GetAllTasks()
@@ -37,7 +57,7 @@ namespace TaskManagement.Service
         public void RemoveTask(string name)
         {
             var items = _dataContext.Tasks;
-            ItemTask item = items.FirstOrDefault(n => n.Name == name);
+            ItemTask item = items?.FirstOrDefault(n => n.Name == name);
             if (item != null)
             {
                 _dataContext.Remove(item);
@@ -75,5 +95,6 @@ namespace TaskManagement.Service
             int hours = 0;
             return hours;
         }
+
     }
 }

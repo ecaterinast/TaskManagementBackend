@@ -25,9 +25,9 @@ namespace TaskManagement.Controllers
         }
 
         [HttpPost]
-        public void AddTask([FromBody] ItemTask task)
+        public void AddTask([FromBody] BaseTask task, TaskType type)
         {
-            _service.AddTask(task);
+            _service.AddTask((ItemTask)task, type);
         }
 
         [HttpPost]
