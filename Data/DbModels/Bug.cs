@@ -11,11 +11,6 @@ namespace TaskManagement.Data.DbModels
         public bool isFixed {  get; set; }
         public string taskTitle { get; set; }
 
-        public override Bug Clone()
-        {
-            Console.WriteLine("A bug task was cloned!");
-            return this.MemberwiseClone() as Bug;
-        }
 
         public override void Create()
         {
@@ -23,10 +18,7 @@ namespace TaskManagement.Data.DbModels
             Console.WriteLine("A bug was created!");
         }
 
-        public override void AddAssignee()
-        {
-            Console.WriteLine("Assigned a person to a bug."); ;
-        }
+        
 
         public override void AddDescription()
         {

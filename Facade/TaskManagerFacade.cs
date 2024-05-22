@@ -1,4 +1,4 @@
-﻿using TaskManagement.Data.DbModels;
+﻿using TaskManagement.Data.Models;
 
 namespace TaskManagement.Facade
 {

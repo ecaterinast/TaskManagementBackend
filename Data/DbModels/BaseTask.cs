@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
+using System.ComponentModel.DataAnnotations.Schema;
+using TaskManagement.Data.Enums;
 using TaskManagement.Interfaces;
 
 namespace TaskManagement.Data.DbModels
 {
     public abstract class BaseTask : IBaseTask
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -16,12 +19,10 @@ namespace TaskManagement.Data.DbModels
         public int Hours { get; set; }
         public TaskPriority Priority { get; set; } // implementation of CoR
         public abstract void Create(); // implementation of Factory Method
-        public abstract BaseTask Clone(); // implementation of Prototype
 
         // Implementation of Builder
-        public virtual void AddDescription() { Console.WriteLine("Description added"); } 
+        public virtual void AddDescription() { Console.WriteLine("Description added"); }
         public virtual void AddLink() { Console.WriteLine("Link added"); }
-        public virtual void AddAssignee() { Console.WriteLine("Assignee added"); }
         public virtual void AddHours() { Console.WriteLine("Hours added"); } // Composite + builder
 
         // Implementation of Decorator

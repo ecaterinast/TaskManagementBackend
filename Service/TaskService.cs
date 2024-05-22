@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TaskManagement.Data;
 using TaskManagement.Data.DbModels;
+using TaskManagement.Data.Enums;
 using TaskManagement.Interfaces;
 
 namespace TaskManagement.Service
@@ -23,21 +24,21 @@ namespace TaskManagement.Service
             }
             return _instance;
         }
-        public void AddTask(BaseTask task, TaskType type)
+        public void AddTask(BaseTask task)
         {
             try
             {
-                if (type == TaskType.ItemTask)
+                if (task.Type == TaskType.ItemTask)
                 {
                     _dataContext.Tasks.Add((ItemTask)task);
                     _dataContext.SaveChanges();
                 }
-                if (type == TaskType.Bug)
+                if (task.Type == TaskType.Bug)
                 {
                     _dataContext.Bugs.Add((Bug)task);
                     _dataContext.SaveChanges();
                 }
-                if (type == TaskType.Epic)
+                if (task.Type == TaskType.Epic)
                 {
                     _dataContext.Epics.Add((Epic)task);
                     _dataContext.SaveChanges();
@@ -47,6 +48,19 @@ namespace TaskManagement.Service
             {
                 Console.WriteLine(ex);
             }
+        }
+
+        public ItemTask CreateTask(BaseTask task)
+        {
+            return new ItemTask
+            {
+                Id = 1,
+                Name = "Name",
+                Description = "This is a description",
+                TaskCreated = DateTime.Now,
+                DueDate = DateTime.Now,
+                Priority = TaskPriority.High,
+            };
         }
 
         public List<ItemTask> GetAllTasks()

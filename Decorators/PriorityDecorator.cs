@@ -14,13 +14,7 @@ namespace TaskManagement.Decorators
             return base.GetDescription() + $"\n(Priority: {Priority})";
         }
 
-        //virtual or abstract?? de adaugat
         public override void Create()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override BaseTask Clone()
         {
             throw new NotImplementedException();
         }
